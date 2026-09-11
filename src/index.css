@@ -816,3 +816,11 @@ select {
   }
 
 }
+.sidebar-close {
+  display: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
