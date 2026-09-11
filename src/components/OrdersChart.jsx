@@ -1,6 +1,6 @@
 import {
-  LineChart,
-  Line,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -8,15 +8,34 @@ import {
   ResponsiveContainer
 } from "recharts"
 
-function RevenueChart() {
+
+function OrdersChart() {
 
   const data = [
-    { month: "Jan", revenue: 40000 },
-    { month: "Feb", revenue: 50000 },
-    { month: "Mar", revenue: 45000 },
-    { month: "Apr", revenue: 60000 },
-    { month: "May", revenue: 75000 },
-    { month: "Jun", revenue: 85000 }
+    {
+      month: "Jan",
+      orders: 80
+    },
+    {
+      month: "Feb",
+      orders: 120
+    },
+    {
+      month: "Mar",
+      orders: 100
+    },
+    {
+      month: "Apr",
+      orders: 150
+    },
+    {
+      month: "May",
+      orders: 180
+    },
+    {
+      month: "Jun",
+      orders: 210
+    }
   ]
 
 
@@ -25,7 +44,7 @@ function RevenueChart() {
     <div className="chart-card">
 
       <h2>
-        Revenue Overview
+        Orders Overview
       </h2>
 
       <ResponsiveContainer
@@ -33,7 +52,7 @@ function RevenueChart() {
         height={300}
       >
 
-        <LineChart data={data}>
+        <BarChart data={data}>
 
           <CartesianGrid
             strokeDasharray="3 3"
@@ -47,13 +66,11 @@ function RevenueChart() {
 
           <Tooltip />
 
-          <Line
-            type="monotone"
-            dataKey="revenue"
-            strokeWidth={3}
+          <Bar
+            dataKey="orders"
           />
 
-        </LineChart>
+        </BarChart>
 
       </ResponsiveContainer>
 
@@ -61,4 +78,4 @@ function RevenueChart() {
   )
 }
 
-export default RevenueChart
+export default OrdersChart

@@ -432,11 +432,19 @@ select {
 .charts-grid {
   display: grid;
 
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
 
   gap: 20px;
 
   margin-top: 30px;
+}
+
+.charts-grid .chart-card {
+  margin-top: 0;
+}
+
+.charts-grid .chart-card:first-child {
+  grid-column: span 2;
 }
 
 .chart-card {
@@ -543,6 +551,10 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .charts-grid .chart-card:first-child {
+    grid-column: span 1;
+  }
+
 }
 
 
@@ -630,6 +642,177 @@ select {
 
   .pagination {
     justify-content: center;
+  }
+
+}
+
+.page-description {
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+.download-button {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.download-button:hover {
+  background: #f1f5f9;
+}
+
+@media (max-width: 600px) {
+  .download-button {
+    width: 100%;
+  }
+}
+/* Settings */
+
+.settings-page {
+  max-width: 1000px;
+}
+
+.settings-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: var(--shadow);
+}
+
+.settings-card h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.settings-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #64748b;
+}
+
+.setting-option,
+.security-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting-option:last-child {
+  border-bottom: none;
+}
+
+.setting-option h3,
+.security-info h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.setting-option p,
+.security-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.setting-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.secondary-button,
+.save-button {
+  padding: 10px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.secondary-button {
+  border: 1px solid var(--border);
+  background: white;
+}
+
+.secondary-button:hover {
+  background: #f1f5f9;
+}
+
+.settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.save-button {
+  border: none;
+  background: var(--primary);
+  color: white;
+}
+
+.save-button:hover {
+  background: var(--primary-light);
+}
+
+.success-message {
+  color: var(--success);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+
+  .settings-form {
+    grid-template-columns: 1fr;
+  }
+
+  .setting-option,
+  .security-info {
+    align-items: flex-start;
+  }
+
+  .settings-card {
+    padding: 18px;
+  }
+
+  .settings-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .save-button {
+    width: 100%;
   }
 
 }

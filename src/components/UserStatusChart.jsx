@@ -6,6 +6,7 @@ import {
   ResponsiveContainer
 } from "recharts"
 
+
 function UserStatusChart() {
 
   const data = [
@@ -19,12 +20,25 @@ function UserStatusChart() {
     }
   ]
 
+
+  const COLORS = [
+    "#22c55e",
+    "#ef4444"
+  ]
+
+
   return (
+
     <div className="chart-card">
 
-      <h2>User Status</h2>
+      <h2>
+        User Status
+      </h2>
 
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer
+        width="100%"
+        height={300}
+      >
 
         <PieChart>
 
@@ -37,9 +51,16 @@ function UserStatusChart() {
             outerRadius={100}
             label
           >
+
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} />
+
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+
             ))}
+
           </Pie>
 
           <Tooltip />
