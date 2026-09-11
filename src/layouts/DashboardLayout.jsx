@@ -7,8 +7,14 @@ function DashboardLayout({ children }) {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+
   return (
-    <div className="dashboard-layout">
+    <div
+      className={`dashboard-layout ${
+        sidebarCollapsed ? "sidebar-collapsed" : ""
+      }`}
+    >
 
       <Sidebar
         sidebarOpen={sidebarOpen}
@@ -19,6 +25,9 @@ function DashboardLayout({ children }) {
 
         <Navbar
           onMenuClick={() => setSidebarOpen(true)}
+          onCollapseClick={() =>
+            setSidebarCollapsed(!sidebarCollapsed)
+          }
         />
 
         <main className="main-content">

@@ -1,4 +1,6 @@
 import DashboardCard from "../components/DashboardCard"
+import RevenueChart from "../components/RevenueChart"
+import UserStatusChart from "../components/UserStatusChart"
 
 function Dashboard() {
 
@@ -48,6 +50,9 @@ function Dashboard() {
         ))}
 
       </div>
+
+      <RevenueChart />
+      <UserStatusChart />
 
     </div>
   )

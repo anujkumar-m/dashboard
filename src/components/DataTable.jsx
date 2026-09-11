@@ -19,9 +19,20 @@ function DataTable({ data }) {
           <tr key={user.id}>
 
             <td>{user.id}</td>
+
             <td>{user.name}</td>
+
             <td>{user.email}</td>
-            <td>{user.status}</td>
+
+            <td>
+              <span
+                className={`status-badge ${
+                  user.status.toLowerCase()
+                }`}
+              >
+                {user.status}
+              </span>
+            </td>
 
           </tr>
 

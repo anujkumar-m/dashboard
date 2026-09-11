@@ -2,8 +2,45 @@ import { NavLink } from "react-router-dom"
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
+  const menuItems = [
+    {
+      name: "Dashboard",
+      path: "/",
+      icon: "🏠"
+    },
+    {
+      name: "Users",
+      path: "/users",
+      icon: "👥"
+    },
+    {
+      name: "Products",
+      path: "/products",
+      icon: "📦"
+    },
+    {
+      name: "Analytics",
+      path: "/analytics",
+      icon: "📊"
+    },
+    {
+      name: "Reports",
+      path: "/reports",
+      icon: "📄"
+    },
+    {
+      name: "Settings",
+      path: "/settings",
+      icon: "⚙️"
+    }
+  ]
+
   return (
-    <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+    <aside
+      className={`sidebar ${
+        sidebarOpen ? "open" : ""
+      }`}
+    >
 
       <div className="sidebar-logo">
 
@@ -20,12 +57,25 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
       <nav className="sidebar-menu">
 
-        <NavLink to="/">Dashboard</NavLink>
-        <NavLink to="/users">Users</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/analytics">Analytics</NavLink>
-        <NavLink to="/reports">Reports</NavLink>
-        <NavLink to="/settings">Settings</NavLink>
+        {menuItems.map((item) => (
+
+          <NavLink
+            key={item.path}
+            to={item.path}
+            onClick={() => setSidebarOpen(false)}
+          >
+
+            <span className="menu-icon">
+              {item.icon}
+            </span>
+
+            <span className="menu-text">
+              {item.name}
+            </span>
+
+          </NavLink>
+
+        ))}
 
       </nav>
 

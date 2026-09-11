@@ -1,4 +1,4 @@
-function Navbar({ onMenuClick }) {
+function Navbar({ onMenuClick, onCollapseClick }) {
 
   return (
     <header className="navbar">
@@ -6,8 +6,15 @@ function Navbar({ onMenuClick }) {
       <div className="navbar-left">
 
         <button
-          className="menu-button"
+          className="menu-button mobile-menu"
           onClick={onMenuClick}
+        >
+          ☰
+        </button>
+
+        <button
+          className="menu-button desktop-menu"
+          onClick={onCollapseClick}
         >
           ☰
         </button>
@@ -17,6 +24,10 @@ function Navbar({ onMenuClick }) {
       </div>
 
       <div className="navbar-user">
+        <div className="user-avatar">
+          A
+        </div>
+
         <span>Admin</span>
       </div>
 
